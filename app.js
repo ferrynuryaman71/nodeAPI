@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 
 const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders');
+const userRoutes = require('./api/routes/user');
 const mongoose = require('./db/mongoose');
 
 app.use(morgan('dev'));
@@ -27,6 +28,7 @@ app.use((req, res, next) => {
 //Route which should hendle requests
 app.use('/products', productRoutes);
 app.use('/orders', orderRoutes);
+app.use('/user', userRoutes);
 
 app.use((req, res, next) => {
 	const error = new Error('not found');
